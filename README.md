@@ -40,7 +40,7 @@ My chosen API for this project is **PokemonAPI**.
 
 Here's a video / GIF that demos all of the app's implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' />
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' /> https://www.loom.com/share/d4317e8673cd471ebdfe52745df47356?sid=6878cc38-5471-4336-9b77-20cec05053b5
 
 GIF created with **your chosen GIF tool**
 
