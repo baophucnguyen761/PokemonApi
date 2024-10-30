@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     var pokeImageURL = ""
     var pokeName = ""
     var pokeType = ""
-    var pokeID = 10
+    var pokeID = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         // Get a random Pokémon when the button is clicked
         randomButton.setOnClickListener {
-            pokeID = Random.nextInt(1, 399) // Random Pokémon ID (you can increase the range)
+            pokeID = Random.nextInt(1, 399)
             pokemonInput(pokeID.toString(), imageView, pokeNameView, pokeTypeView)
         }
     }
@@ -50,14 +51,13 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Pokemon", "response successful: $json")
                 val pokeJSON = json.jsonObject
                 pokeImageURL = pokeJSON.getJSONObject("sprites").getString("front_default")
-                pokeName = pokeJSON.getString("name").capitalize()
-                pokeType = pokeJSON.getJSONArray("types").getJSONObject(0).getJSONObject("type").getString("name").capitalize()
+                pokeName = pokeJSON.getString("name")
+                pokeType = pokeJSON.getJSONArray("types").getJSONObject(0).getJSONObject("type").getString("name")
 
-                // Use Picasso to load image
-                com.squareup.picasso.Picasso.get()
+                // Use Glide to load image
+                Glide.with(this@MainActivity)
                     .load(pokeImageURL)
-                    .fit()
-                    .centerInside()
+                    .fitCenter()
                     .into(imageView)
 
                 pokeNameView.text = pokeName
@@ -71,4 +71,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 }
