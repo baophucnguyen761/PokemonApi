@@ -7,16 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Title -->
-
-    <!-- ImageView to display the Pokémon image -->
-
-    <!-- TextView to display Pokémon name -->
-
-    <!-- TextView to display Pokémon type -->
-
-    <!-- Button to get a random Pokémon -->
-
     <TextView
         android:id="@+id/PokemonView"
         android:layout_width="wrap_content"
